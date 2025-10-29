@@ -1,0 +1,7 @@
+{
+  "name": "gym-warriors",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
