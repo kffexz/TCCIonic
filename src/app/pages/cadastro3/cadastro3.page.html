@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true" class="cadastro3-content">
+
+  <!-- ✅ Modal de alerta unificado -->
+  <div *ngIf="showAlert" class="modal-alert">
+    <div class="modal-content">
+      <p>{{ alertMessage }}</p>
+      <ion-button (click)="closeCustomAlert()">Confirmar</ion-button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Selecione os equipamentos que você tem acesso:</h2>
+
+      <!-- GRID DE EQUIPAMENTOS -->
+      <div class="grid">
+        <div
+          class="equipamento"
+          *ngFor="let equip of equipamentos"
+          [class.selecionado]="equipSelecionados.includes(equip.nome)"
+          (click)="toggleEquipamento(equip.nome)"
+        >
+          <img [src]="equip.img" [alt]="equip.nome" />
+          <p>{{ equip.nome }}</p>
+        </div>
+      </div>
+
+      <ion-button (click)="salvarEquipamentos()">Salvar Seleção</ion-button>
+    </div>
+  </div>
+
+</ion-content>

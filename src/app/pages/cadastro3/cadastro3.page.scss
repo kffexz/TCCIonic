@@ -1,0 +1,222 @@
+/* =============================== */
+/*          TEMA GLOBAL            */
+/* =============================== */
+:host {
+  --ion-background-color: linear-gradient(92deg, #000000, #00aea8, #00aea8);
+  --ion-text-color: #ffffff;
+}
+
+/* =============================== */
+/*        ION CONTENT ESTILIZADO   */
+/* =============================== */
+.cadastro3-content {
+ height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* =============================== */
+/*           CONTAINER             */
+/* =============================== */
+.container {
+   display: flex;
+  flex-direction: column;
+  justify-content:  flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(26, 26, 26, 0.9);
+  border-radius: 0;
+  text-align: center;
+  padding: 20px 25px;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.8s ease-in-out;
+  overflow-y: auto;
+}
+
+/* =============================== */
+/*             TÍTULO              */
+/* =============================== */
+h2 {
+  color: #00aea8;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+/* =============================== */
+/*         GRID DE EQUIPAMENTOS    */
+/* =============================== */
+.grid {
+  display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  justify-items:  center;
+  margin-bottom: 1.5rem;
+}
+
+.equipamento {
+  background: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 140px;
+
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 6px;
+    transition: transform 0.2s ease;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #000;
+  }
+
+  &:hover {
+    border-color: #00aea8;
+    transform: translateY(-3px);
+  }
+
+  &.selecionado {
+    background: white;
+    border-color: #00aea8;
+    box-shadow: 0 0 15px rgba(0, 174, 168, 0.6);
+
+    img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* =============================== */
+/*             BOTÃO               */
+/* =============================== */
+ion-button {
+  --background: #00aea8;
+  --background-activated: #009f98;
+  --border-radius: 12px;
+  --box-shadow: 0 0 12px rgba(0, 174, 168, 0.4);
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+  color: white;
+
+  &:hover {
+    background: #00c7c0;
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(0, 174, 168, 0.6);
+  }
+}
+
+/* =============================== */
+/*       MODAL PERSONALIZADO       */
+/* =============================== */
+.modal-alert {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+  animation: fadeInBg 0.3s ease;
+}
+
+.modal-content {
+  background-color: rgba(26, 26, 26, 0.95);
+  border: 2px solid #00aea8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 85%;
+  max-width: 320px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 0 25px rgba(0, 174, 168, 0.4);
+  transform: scale(0.9);
+  animation: slideInAlert 0.25s ease forwards;
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  button {
+    background: #00aea8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: #00c7c0;
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* =============================== */
+/*            ANIMAÇÕES            */
+/* =============================== */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInAlert {
+  from { transform: translateY(-10px) scale(0.9); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* =============================== */
+/*         RESPONSIVIDADE          */
+/* =============================== */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .equipamento img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .equipamento p {
+    font-size: 0.85rem;
+  }
+
+  ion-button {
+    font-size: 0.95rem;
+  }
+}

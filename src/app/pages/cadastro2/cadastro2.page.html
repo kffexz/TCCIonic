@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true" class="cadastro2-content">
+  <!-- Modal de alerta -->
+  <div class="modal-alert" *ngIf="showAlert">
+    <div class="modal-content">
+      <p>{{ alertMessage }}</p>
+      <button (click)="fecharAlerta()">Confirmar</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Bem-vindo!</h2>
+      <p id="userName">{{ userName }}</p>
+
+      <form (ngSubmit)="salvarDados()">
+        <ion-input
+          type="number"
+          [(ngModel)]="altura"
+          name="altura"
+          placeholder="Altura (cm)"
+          required
+          (ionInput)="validarInput($event)"
+        ></ion-input>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="peso"
+          name="peso"
+          placeholder="Peso (kg)"
+          required
+          (ionInput)="validarInput($event)"
+        ></ion-input>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="idade"
+          name="idade"
+          placeholder="Idade"
+          required
+          (ionInput)="validarInput($event)"
+        ></ion-input>
+
+        <ion-select
+          [(ngModel)]="objetivo"
+          name="objetivo"
+          placeholder="Selecione um objetivo"
+          (ionChange)="atualizarDescricao()"
+        >
+          <ion-select-option *ngFor="let obj of objetivos" [value]="obj">
+            {{ obj }}
+          </ion-select-option>
+        </ion-select>
+
+        <p id="descricaoObjetivo">{{ descricaoObjetivo }}</p>
+
+        <ion-select [(ngModel)]="genero" name="genero" placeholder="Gênero" required>
+          <ion-select-option value="Masculino">Masculino</ion-select-option>
+          <ion-select-option value="Feminino">Feminino</ion-select-option>
+        </ion-select>
+
+        <ion-button expand="block" type="submit">Salvar Dados</ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>
