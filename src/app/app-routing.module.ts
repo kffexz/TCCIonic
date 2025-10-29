@@ -4,7 +4,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    redirectTo: 'cadastro', // 👈 página inicial do app
+    pathMatch: 'full'
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./pages/cadastro/cadastro.module').then( m => m.CadastroPageModule)
   }
 ];
 @NgModule({

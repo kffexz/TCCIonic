@@ -1,0 +1,185 @@
+/* =============================== */
+/*          TEMA GLOBAL            */
+/* =============================== */
+:host {
+  --ion-background-color: linear-gradient(160deg, #000000, #00aea8, #eaeaea);
+  --ion-text-color: #ffffff;
+}
+
+/* =============================== */
+/*            CONTAINER            */
+/* =============================== */
+.cadastro-content {
+  height: 100%; /* ocupa toda a altura da tela */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centraliza o conteúdo verticalmente */
+  align-items: center;
+  height: 100%; /* 🔹 ocupa toda a altura da tela */
+  width: 100%; /* 🔹 ocupa toda a largura da tela */
+  background: rgba(26, 26, 26, 0.9);
+  border-radius: 0; /* 🔹 remove cantos arredondados para cobrir tudo */
+  text-align: center;
+  padding: 20px 25px;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.8s ease-in-out;
+  overflow-y: auto; /* 🔹 permite rolar se o conteúdo for maior que a tela */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =============================== */
+/*           CABEÇALHO             */
+/* =============================== */
+#logo {
+  width: 100px;
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 1.7rem;
+  color: #00aea8;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* =============================== */
+/*         FORMULÁRIO              */
+/* =============================== */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 340px;
+  margin-bottom: 20px;
+}
+
+.form-box h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+ion-input {
+  --background: #2a2a2a;
+  --color: #ffffff;
+  --placeholder-color: #bbbbbb;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --border-radius: 10px;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  width: 100%;
+  --padding-start: 16px;
+  text-align: left;
+}
+
+ion-input:focus-within {
+  border: 2px solid #00aea8;
+  box-shadow: 0 0 12px rgba(0, 174, 168, 0.5);
+}
+
+ion-item.checkbox-item {
+  --background: transparent;
+  --color: #bbbbbb;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  margin-top: 8px;
+  text-align: left;
+  align-items: flex-start;
+}
+
+ion-checkbox {
+  --size: 20px;
+  margin-right: 8px;
+}
+
+/* =============================== */
+/*            BOTÃO                */
+/* =============================== */
+ion-button {
+  --background: #00aea8;
+  --background-activated: #009f98;
+  --border-radius: 10px;
+  --box-shadow: 0 4px 15px rgba(0, 174, 168, 0.6);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  margin-top: 10px;
+  width: 100%;
+}
+
+ion-button:hover {
+  transform: scale(1.03);
+  transition: transform 0.2s ease;
+}
+
+/* =============================== */
+/*       MENSAGENS / LINKS         */
+/* =============================== */
+#msgCadastro {
+  font-size: 0.9rem;
+  min-height: 5px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+p {
+  font-size: 0.85rem;
+  color: #cccccc;
+  margin-top: 5px;
+}
+
+p a {
+  color: #00aea8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+p a:hover {
+  color: #00d2cb;
+  text-decoration: underline;
+}
+
+/* =============================== */
+/*        RESPONSIVIDADE           */
+/* =============================== */
+@media (max-width: 400px) {
+  .container {
+    padding: 25px 15px;
+  }
+
+  #logo {
+    width: 80px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  ion-input,
+  ion-button {
+    font-size: 0.9rem;
+  }
+
+  ion-item.checkbox-item {
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true" class="cadastro-content">
+  <div class="container">
+    <img src="assets/icon/logo.png" alt="Logo TCC" id="logo" />
+    <h2>Gym Warriors</h2>
+
+    <div class="form-box">
+      <h3>Cadastro</h3>
+
+      <ion-input [(ngModel)]="nome" placeholder="Nome de usuário"></ion-input>
+      <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
+      <ion-input [(ngModel)]="senha" placeholder="Senha" type="password"></ion-input>
+
+      <!-- Checkbox de saúde -->
+      <ion-item lines="none" class="checkbox-item">
+        <ion-checkbox slot="start" [(ngModel)]="checkSaude"></ion-checkbox>
+        <ion-label>
+          Declaro que estou com minha saúde física em boas condições,
+          consultei um(a) médico(a) e estou apto(a) para realizar os treinos orientados aqui.
+        </ion-label>
+      </ion-item>
+
+      <ion-button expand="block" (click)="cadastrar()">Cadastrar</ion-button>
+
+      <p id="msgCadastro" [ngStyle]="{ color: msgColor }">{{ msgCadastro }}</p>
+       <p>
+      Você já tem uma conta? Faça o
+      <a routerLink="/login" style="color: #00aea8; text-decoration: none">login</a> aqui
+    </p>
+    </div>
+
+   
+  </div>
+</ion-content>
