@@ -1,0 +1,270 @@
+/* =============================== */
+/*          TEMA GLOBAL            */
+/* =============================== */
+:host {
+  --ion-background-color: linear-gradient(160deg, #000000, #00aea8, #eaeaea);
+  --ion-text-color: #ffffff;
+}
+
+/* =============================== */
+/*            CONTAINER            */
+/* =============================== */
+.edit-perfil-content {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(26, 26, 26, 0.9);
+  border-radius: 0;
+  text-align: center;
+  padding: 20px 25px;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.8s ease-in-out;
+  overflow-y: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =============================== */
+/*           CABEÇALHO             */
+/* =============================== */
+#logo {
+  width: 100px;
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 1.7rem;
+  color: #00aea8;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* =============================== */
+/*         FORMULÁRIO              */
+/* =============================== */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 340px;
+  margin-bottom: 20px;
+}
+
+.form-box h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+/* 🔹 Inputs, selects e similares */
+ion-input,
+ion-select {
+  --background: #2a2a2a;
+  --color: #ffffff;
+  --placeholder-color: #bbbbbb;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --border-radius: 10px;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+}
+
+ion-input:focus-within,
+ion-select:focus-within {
+  border: 2px solid #00aea8;
+  box-shadow: 0 0 12px rgba(0, 174, 168, 0.5);
+}
+
+/* 🔹 Select (objetivo/gênero) */
+ion-select {
+  --placeholder-opacity: 0.7;
+  --padding-start: 16px;
+}
+
+.descricao-objetivo {
+  background: rgba(42, 42, 42, 0.8);
+  color: #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  text-align: left;
+  border-left: 3px solid #00aea8;
+}
+
+/* =============================== */
+/*            BOTÃO                */
+/* =============================== */
+ion-button {
+  --background: #00aea8;
+  --background-activated: #009f98;
+  --border-radius: 10px;
+  --box-shadow: 0 4px 15px rgba(0, 174, 168, 0.6);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+}
+
+ion-button:hover {
+  transform: scale(1.03);
+  transition: transform 0.2s ease;
+}
+/* =========================
+   MODAL PERSONALIZADO (ATUALIZADO)
+========================= */
+.modal-alert {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeInBg 0.3s ease;
+}
+
+/* O quadrado central do alerta */
+.modal-content {
+  background-color: var(--cor-container);
+  border: 2px solid var(--cor-principal);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  width: 85%;
+  max-width: 340px;
+  text-align: center;
+  color: var(--cor-texto);
+  box-shadow: 0 0 25px rgba(0, 174, 168, 0.4);
+  transform: scale(0.9);
+  animation: slideInAlert 0.25s ease forwards;
+}
+
+/* Mensagem */
+.modal-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--cor-texto);
+}
+
+/* Botão "Confirmar" */
+.modal-content button {
+  background: var(--cor-principal);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 174, 168, 0.4);
+}
+
+.modal-content button:hover {
+  background: #00c7c0;
+  box-shadow: 0 0 15px rgba(0, 174, 168, 0.7);
+  transform: scale(1.05);
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInAlert {
+  from {
+    transform: translateY(-10px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* =============================== */
+/*       MENSAGENS / LINKS         */
+/* =============================== */
+#msgCadastro {
+  font-size: 0.9rem;
+  min-height: 5px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+p {
+  font-size: 0.85rem;
+  color: #cccccc;
+  margin-top: 5px;
+}
+
+p a {
+  color: #00aea8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+p a:hover {
+  color: #00d2cb;
+  text-decoration: underline;
+}
+
+#userName {
+    font-size: 30pt;
+}
+
+/* =============================== */
+/*        RESPONSIVIDADE           */
+/* =============================== */
+@media (max-width: 400px) {
+  .container {
+    padding: 25px 15px;
+  }
+
+  #logo {
+    width: 80px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  ion-input,
+  ion-select,
+  ion-button {
+    font-size: 0.9rem;
+  }
+
+  .descricao-objetivo {
+    font-size: 0.8rem;
+  }
+}

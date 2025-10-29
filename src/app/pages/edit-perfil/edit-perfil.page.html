@@ -1,0 +1,86 @@
+<ion-content [fullscreen]="true" class="edit-perfil-content">
+
+  <!-- ✅ Modal de Alerta -->
+  <div *ngIf="showAlert" class="modal-alert">
+    <div class="modal-content">
+      <p>{{ alertMessage }}</p>
+      <ion-button (click)="closeCustomAlert()">Confirmar</ion-button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Editar Perfil</h2>
+      <p *ngIf="userName">Nome do usuário: {{ userName }}</p>
+
+      <form (ngSubmit)="salvarDados()" #form="ngForm">
+        <ion-input
+          type="text"
+          placeholder="Nome de usuário"
+          [(ngModel)]="cadNome"
+          name="cadNome"
+          required>
+        </ion-input>
+
+        <ion-input
+          type="number"
+          placeholder="Altura (cm)"
+          [(ngModel)]="altura"
+          name="altura"
+          required
+          inputmode="numeric"
+          (keydown)="bloquearTeclasInvalidas($event)">
+        </ion-input>
+
+        <ion-input
+          type="number"
+          placeholder="Peso (kg)"
+          [(ngModel)]="peso"
+          name="peso"
+          required
+          inputmode="numeric"
+          (keydown)="bloquearTeclasInvalidas($event)">
+        </ion-input>
+
+        <ion-input
+          type="number"
+          placeholder="Idade"
+          [(ngModel)]="idade"
+          name="idade"
+          required
+          inputmode="numeric"
+          (keydown)="bloquearTeclasInvalidas($event)">
+        </ion-input>
+
+        <ion-select
+          placeholder="Selecione um objetivo"
+          [(ngModel)]="objetivo"
+          name="objetivo"
+          (ionChange)="atualizarDescricao()"
+          required>
+          <ion-select-option value="Resistência">Resistência</ion-select-option>
+          <ion-select-option value="Força">Força</ion-select-option>
+          <ion-select-option value="Crescimento">Crescimento</ion-select-option>
+          <ion-select-option value="Funcional">Funcional</ion-select-option>
+          <ion-select-option value="Aeróbico">Aeróbico</ion-select-option>
+          <ion-select-option value="Mobilidade">Mobilidade</ion-select-option>
+        </ion-select>
+
+        <p id="descricaoObjetivo" *ngIf="descricaoObjetivo" style="color: rgb(182, 182, 182); margin-top: 8px;">
+          {{ descricaoObjetivo }}
+        </p>
+
+        <ion-select
+          placeholder="Gênero"
+          [(ngModel)]="genero"
+          name="genero"
+          required>
+          <ion-select-option value="Masculino">Masculino</ion-select-option>
+          <ion-select-option value="Feminino">Feminino</ion-select-option>
+        </ion-select>
+
+        <ion-button expand="block" type="submit">Salvar Dados</ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>
